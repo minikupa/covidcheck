@@ -9,6 +9,7 @@ module.exports = async function autocheck(code, name, bitrh, password) {
   try {
     userToken = await api.findUser(code, name, bitrh)
   } catch (e) {
+    console.log(e);
     return "이름, 생일을 확인해주세요.";
   }
 
@@ -17,6 +18,7 @@ module.exports = async function autocheck(code, name, bitrh, password) {
   try {
     userToken = await api.checkPassword(userToken, password)
   } catch (e) {
+    console.log(e);
     return "비밀번호를 확인해주세요.";
   }
 
